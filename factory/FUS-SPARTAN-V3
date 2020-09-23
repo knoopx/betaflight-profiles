@@ -1,0 +1,71 @@
+# Betaflight / MATEKF411 (MK41) 4.1.1 Nov 15 2019 / 12:34:58 (1e5e3d369) MSP API: 1.42
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name MATEKF411
+mcu_id 005800503439510537393937
+signature 
+
+# name: FUS-RC
+
+# feature
+feature -SOFTSERIAL
+feature -TELEMETRY
+feature MOTOR_STOP
+feature LED_STRIP
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# serial
+serial 0 8192 115200 57600 0 115200
+serial 1 64 115200 57600 0 115200
+
+# led
+led 0 7,8::CB:6
+
+# master
+set acc_calibration = -184,69,-658
+set baro_hardware = NONE
+set dshot_idle_value = 350
+set motor_pwm_protocol = DSHOT600
+set small_angle = 180
+set osd_vbat_pos = 2497
+set osd_tim_1_pos = 2518
+set osd_flymode_pos = 2082
+set osd_craft_name_pos = 2508
+set osd_avg_cell_voltage_pos = 2465
+set name = FUS-RC
+
+profile 0
+
+profile 1
+
+profile 2
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+rateprofile 1
+
+rateprofile 2
+
+rateprofile 3
+
+rateprofile 4
+
+rateprofile 5
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
+save
+# 

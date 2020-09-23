@@ -1,0 +1,27 @@
+rateprofile 0
+set roll_srate = 74
+set pitch_srate = 74
+set yaw_srate = 74
+set rate_center_sensitivity = 80
+set rate_end_sensitivity = 130
+set rate_center_weight = 35
+set rate_end_weight = 35
+
+rateprofile 1
+set roll_srate = 74
+set pitch_srate = 74
+set yaw_srate = 74
+set rate_center_sensitivity = 80
+set rate_end_sensitivity = 90
+set rate_center_correction = 20
+set rate_center_weight = 85
+set rate_end_weight = 50
+
+rateprofile 2
+set roll_srate = 74
+set pitch_srate = 74
+set yaw_srate = 74
+set rate_center_sensitivity = 55
+set rate_center_correction = 25
+set rate_center_weight = 90
+set rate_end_weight = 50

@@ -1,0 +1,3 @@
+set rx_spi_protocol = FLYSKY_2A
+set flysky_spi_tx_id = 1458133094
+set flysky_spi_rf_channels = 102,12,163,64,115,5,152,43,96,24,136,56,121,33,126,69
