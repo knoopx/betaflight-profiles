@@ -70,9 +70,8 @@ set fpv_mix_degrees = 25
 set rx_spi_protocol = FRSKY_D
 set blackbox_device = NONE
 set min_throttle = 1050
-set dshot_idle_value = 850
+set dshot_idle_value = 1000
 set dshot_burst = OFF
-set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
 set motor_poles = 12
 set vbat_max_cell_voltage = 435
@@ -85,7 +84,7 @@ set beeper_dshot_beacon_tone = 5
 set yaw_motors_reversed = ON
 set small_angle = 180
 set runaway_takeoff_prevention = OFF
-set thrust_linear = 150
+set thrust_linear = 125
 set osd_rssi_pos = 6554
 set osd_tim_2_pos = 2450
 set osd_flymode_pos = 2439
@@ -127,9 +126,8 @@ set i_yaw = 100
 set f_yaw = 100
 set d_min_roll = 0
 set d_min_pitch = 0
-set ff_interpolate_sp = AVERAGED_2
+set ff_interpolate_sp = OFF
 set ff_smooth_factor = 20
-set idle_min_rpm = 30
 
 profile 1
 
