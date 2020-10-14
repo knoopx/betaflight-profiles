@@ -12,7 +12,7 @@ manufacturer_id MTKS
 mcu_id 002f005e3339510431333432
 signature 
 
-# name: K75 HD
+# name: 65MM
 
 # feature
 feature -AIRMODE
@@ -21,16 +21,17 @@ feature -ANTI_GRAVITY
 # serial
 serial 1 8192 115200 57600 0 115200
 
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
 # aux
 aux 0 0 0 1700 2100 0 0
 aux 1 1 1 900 1300 0 0
 aux 2 13 3 1700 2100 0 0
-aux 3 28 1 1700 2100 0 0
+aux 3 28 2 1700 2100 0 0
 aux 4 30 1 900 1300 0 0
 aux 5 35 3 1700 2100 0 0
-
-# adjrange
-adjrange 0 0 2 900 2100 12 2 0 0
 
 # vtxtable
 vtxtable bands 5
@@ -46,13 +47,14 @@ vtxtable powerlabels 25 100 200 LV3
 
 # master
 set gyro_lowpass_hz = 100
-set gyro_lowpass2_hz = 0
+set gyro_lowpass2_hz = 325
+set gyro_notch1_hz = 500
 set dyn_notch_width_percent = 0
-set dyn_notch_q = 250
-set dyn_notch_min_hz = 100
+set dyn_notch_q = 70
+set dyn_notch_min_hz = 130
 set dyn_notch_max_hz = 350
-set dyn_lpf_gyro_min_hz = 100
-set dyn_lpf_gyro_max_hz = 300
+set dyn_lpf_gyro_min_hz = 260
+set dyn_lpf_gyro_max_hz = 650
 set acc_calibration = -288,-47,-274,1
 set mag_hardware = NONE
 set baro_hardware = NONE
@@ -93,15 +95,16 @@ set osd_stat_battery = ON
 set scheduler_optimize_rate = ON
 set vtx_band = 5
 set vtx_channel = 1
-set vtx_power = 1
+set vtx_power = 2
 set vtx_freq = 5658
 set vcd_video_system = NTSC
 set frsky_spi_tx_id = 233,86,0
-set frsky_spi_offset = -1
-set frsky_spi_bind_hop_data = 0,42,25,14,63,18,70,15,68,54,23,33,26,11,36,60,49,19,24,71,21,28,2,39,30,48,17,34,56,45,61,8,44,16,74,57,38,65,31,37,69,62,5,43,73,53,3,0,0,0
+set frsky_spi_offset = -33
+set frsky_spi_bind_hop_data = 8,89,130,204,175,61,53,26,165,37,156,97,55,64,115,12,228,35,191,99,216,28,253,185,195,134,202,247,109,81,2,183,72,243,44,154,50,188,233,58,10,94,104,78,67,210,83,226,148,0
 set gyro_1_align_yaw = 1800
+set gyro_rpm_notch_harmonics = 0
 set gyro_rpm_notch_q = 700
-set name = K75 HD
+set name = 65MM
 
 profile 0
 
@@ -115,22 +118,20 @@ set iterm_relax_cutoff = 20
 set yaw_lowpass_hz = 100
 set throttle_boost = 0
 set throttle_boost_cutoff = 25
-set p_pitch = 86
-set i_pitch = 99
-set d_pitch = 85
-set f_pitch = 0
-set p_roll = 78
-set i_roll = 94
-set d_roll = 78
-set f_roll = 0
-set p_yaw = 85
-set i_yaw = 99
-set f_yaw = 0
+set p_pitch = 50
+set i_pitch = 75
+set d_pitch = 44
+set f_pitch = 60
+set p_roll = 46
+set i_roll = 65
+set d_roll = 40
+set f_roll = 60
+set p_yaw = 95
+set i_yaw = 25
+set f_yaw = 200
 set d_min_roll = 0
 set d_min_pitch = 0
 set ff_interpolate_sp = OFF
-set ff_smooth_factor = 20
-set idle_min_rpm = 30
 
 profile 1
 
@@ -143,6 +144,11 @@ set f_yaw = 0
 profile 2
 
 # profile 2
+set dyn_lpf_dterm_min_hz = 91
+set dyn_lpf_dterm_max_hz = 221
+set dterm_lowpass_hz = 80
+set dterm_lowpass2_hz = 195
+set iterm_rotation = ON
 set throttle_boost = 0
 set f_pitch = 0
 set f_roll = 0
@@ -164,7 +170,7 @@ set yaw_expo = 60
 set roll_srate = 76
 set pitch_srate = 76
 set yaw_srate = 76
-set tpa_rate = 80
+set tpa_rate = 50
 set tpa_breakpoint = 1750
 set rate_center_sensitivity = 80
 set rate_end_sensitivity = 130
@@ -184,7 +190,7 @@ set yaw_expo = 60
 set roll_srate = 76
 set pitch_srate = 76
 set yaw_srate = 76
-set tpa_rate = 80
+set tpa_rate = 50
 set tpa_breakpoint = 1750
 set rate_center_sensitivity = 80
 set rate_end_sensitivity = 90
@@ -205,7 +211,7 @@ set yaw_expo = 60
 set roll_srate = 76
 set pitch_srate = 76
 set yaw_srate = 76
-set tpa_rate = 80
+set tpa_rate = 50
 set tpa_breakpoint = 1750
 set rate_center_sensitivity = 55
 set rate_center_correction = 25
