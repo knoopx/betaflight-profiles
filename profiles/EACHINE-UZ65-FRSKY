@@ -1,4 +1,4 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Sep 20 2020 / 18:41:22 (de3a84fc5) MSP API: 1.44
+# Betaflight / STM32F411 (S411) 4.3.0 Oct  8 2020 / 17:32:31 (2f32a4022) MSP API: 1.44
 # config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
 
 # start the command batch
@@ -67,7 +67,7 @@ set max_check = 2000
 set rc_smoothing_derivative_type = PT1
 set rc_smoothing_auto_smoothness = 7
 set fpv_mix_degrees = 25
-set rx_spi_protocol = FRSKY_D
+set rx_spi_protocol = REDPINE
 set blackbox_device = NONE
 set min_throttle = 1050
 set dshot_idle_value = 1000
@@ -83,6 +83,7 @@ set ibata_scale = 1175
 set beeper_dshot_beacon_tone = 5
 set yaw_motors_reversed = ON
 set small_angle = 180
+set deadband = 1
 set runaway_takeoff_prevention = OFF
 set thrust_linear = 125
 set osd_rssi_pos = 6554
@@ -98,9 +99,9 @@ set vtx_channel = 1
 set vtx_power = 1
 set vtx_freq = 5658
 set vcd_video_system = NTSC
-set frsky_spi_tx_id = 75,99,0
-set frsky_spi_offset = -1
-set frsky_spi_bind_hop_data = 0,42,25,14,63,18,70,15,68,54,23,33,26,11,36,60,49,19,24,71,21,28,2,39,30,48,17,34,56,45,61,8,44,16,74,57,38,65,31,37,69,62,5,43,73,53,3,0,0,0
+set frsky_spi_tx_id = 233,86,0
+set frsky_spi_offset = -18
+set frsky_spi_bind_hop_data = 8,89,130,204,175,61,53,26,165,37,156,97,55,64,115,12,228,35,191,99,216,28,253,185,195,134,202,247,109,81,2,183,72,243,44,154,50,188,233,58,10,94,104,78,67,210,83,226,148,0
 set gyro_1_align_yaw = 900
 set gyro_rpm_notch_q = 700
 set name = UZ65
