@@ -63,7 +63,6 @@ set min_check = 1000
 set max_check = 2000
 set rc_interp = OFF
 set rc_smoothing_derivative_type = OFF
-set rc_smoothing_auto_smoothness = 7
 set fpv_mix_degrees = 25
 set rx_spi_protocol = REDPINE
 set blackbox_device = NONE
