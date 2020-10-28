@@ -1,4 +1,7 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Oct  8 2020 / 17:32:31 (2f32a4022) MSP API: 1.44
+diff all
+
+# version
+# Betaflight / STM32F411 (S411) 4.3.0 Oct 27 2020 / 20:55:24 (b8417e1ae) MSP API: 1.44
 # config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
 
 # start the command batch
@@ -57,17 +60,10 @@ set dyn_notch_max_hz = 350
 set dyn_lpf_gyro_min_hz = 300
 set dyn_lpf_gyro_max_hz = 750
 set acc_calibration = -212,-50,-165,1
-set mag_hardware = NONE
-set baro_hardware = NONE
 set min_check = 1000
 set max_check = 2000
-set rc_interp = OFF
-set rc_smoothing_derivative_type = OFF
-set rc_smoothing_auto_smoothness = 7
 set fpv_mix_degrees = 25
 set rx_spi_protocol = REDPINE
-set blackbox_device = NONE
-set min_throttle = 1050
 set dshot_idle_value = 1000
 set dshot_burst = OFF
 set dshot_bidir = ON
@@ -83,14 +79,13 @@ set beeper_dshot_beacon_tone = 5
 set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
-set runaway_takeoff_prevention = OFF
-set thrust_linear = 125
-set osd_rssi_pos = 6554
+set thrust_linear = 150
+set osd_rssi_pos = 2458
 set osd_tim_2_pos = 2450
 set osd_flymode_pos = 2439
 set osd_pidrate_profile_pos = 2445
-set osd_warnings_pos = 14537
-set osd_avg_cell_voltage_pos = 6528
+set osd_warnings_pos = 2249
+set osd_avg_cell_voltage_pos = 2432
 set osd_stat_battery = ON
 set scheduler_optimize_rate = ON
 set vtx_band = 5
@@ -102,6 +97,7 @@ set frsky_spi_tx_id = 233,86,0
 set frsky_spi_offset = -33
 set frsky_spi_bind_hop_data = 8,89,130,204,175,61,53,26,165,37,156,97,55,64,115,12,228,35,191,99,216,28,253,185,195,134,202,247,109,81,2,183,72,243,44,154,50,188,233,58,10,94,104,78,67,210,83,226,148,0
 set gyro_1_align_yaw = 900
+set gyro_rpm_notch_harmonics = 1
 set gyro_rpm_notch_q = 700
 set name = UZ65
 
@@ -115,22 +111,15 @@ set dterm_lowpass_hz = 100
 set dterm_lowpass2_hz = 0
 set vbat_sag_compensation = 100
 set iterm_relax = RPY
-set iterm_relax_cutoff = 20
 set p_pitch = 80
 set i_pitch = 25
 set d_pitch = 80
-set f_pitch = 100
 set p_roll = 80
 set i_roll = 25
 set d_roll = 80
-set f_roll = 100
 set p_yaw = 90
 set i_yaw = 100
-set f_yaw = 100
-set d_min_roll = 0
-set d_min_pitch = 0
-set ff_interpolate_sp = OFF
-set idle_min_rpm = 60
+set idle_min_rpm = 40
 
 profile 1
 
@@ -149,56 +138,15 @@ set yaw_rc_rate = 20
 set roll_expo = 60
 set pitch_expo = 60
 set yaw_expo = 60
-set roll_srate = 76
-set pitch_srate = 76
-set yaw_srate = 76
+set roll_srate = 80
+set pitch_srate = 80
+set yaw_srate = 80
 set tpa_rate = 50
 set tpa_breakpoint = 1750
-set rate_center_sensitivity = 80
-set rate_end_sensitivity = 130
-set rate_center_weight = 35
-set rate_end_weight = 35
 
 rateprofile 1
 
-# rateprofile 1
-set rates_type = ACTUAL
-set roll_rc_rate = 20
-set pitch_rc_rate = 20
-set yaw_rc_rate = 20
-set roll_expo = 60
-set pitch_expo = 60
-set yaw_expo = 60
-set roll_srate = 76
-set pitch_srate = 76
-set yaw_srate = 76
-set tpa_rate = 50
-set tpa_breakpoint = 1750
-set rate_center_sensitivity = 80
-set rate_end_sensitivity = 90
-set rate_center_correction = 20
-set rate_center_weight = 85
-set rate_end_weight = 50
-
 rateprofile 2
-
-# rateprofile 2
-set rates_type = ACTUAL
-set roll_rc_rate = 20
-set pitch_rc_rate = 20
-set yaw_rc_rate = 20
-set roll_expo = 60
-set pitch_expo = 60
-set yaw_expo = 60
-set roll_srate = 76
-set pitch_srate = 76
-set yaw_srate = 76
-set tpa_rate = 50
-set tpa_breakpoint = 1750
-set rate_center_sensitivity = 55
-set rate_center_correction = 25
-set rate_center_weight = 90
-set rate_end_weight = 50
 
 rateprofile 3
 
