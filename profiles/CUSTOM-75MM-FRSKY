@@ -1,40 +1,29 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Jan 14 2021 / 11:51:50 (1fa2858ad) MSP API: 1.44
-# config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
+# 
 
-# start the command batch
+# diff all
+# Betaflight / CRAZYBEEF3FR (CBFR) 4.3.0 Nov  2 2020 / 20:32:09 (norevision) MSP API: 1.44 / FEATURE CUT LEVEL 2
 batch start
-
-# reset configuration to default settings
 defaults nosave
+mcu_id 003800345734571320363930
 
-board_name CRAZYBEEF4FR
-manufacturer_id HAMO
-mcu_id 002800333439510337313838
-signature
-
-# name: MOBULA6
-
-# feature
-feature -RX_PARALLEL_PWM
+# name: 75MM
+resource SERIAL_TX 11 B06
+resource SERIAL_RX 11 B04
+resource LED 1 NONE
+feature -MOTOR_STOP
+feature -TELEMETRY
 feature -AIRMODE
 feature -ANTI_GRAVITY
-
-# serial
-serial 1 2048 115200 57600 0 115200
-
-# beacon
+feature SOFTSERIAL
+serial 30 2048 115200 57600 0 115200
 beacon RX_LOST
 beacon RX_SET
-
-# aux
 aux 0 0 0 1700 2100 0 0
 aux 1 1 1 900 1300 0 0
 aux 2 13 3 1700 2100 0 0
 aux 3 28 2 1700 2100 0 0
 aux 4 30 1 900 1300 0 0
 aux 5 35 3 1700 2100 0 0
-
-# vtxtable
 vtxtable bands 6
 vtxtable channels 8
 vtxtable band 1 BOSCAM_A A FACTORY 5865 5845 5825 5805 5785 5765 5745 5725
@@ -43,35 +32,26 @@ vtxtable band 3 BOSCAM_E E FACTORY 5705 5685 5665    0 5885 5905    0    0
 vtxtable band 4 FATSHARK F FACTORY 5740 5760 5780 5800 5820 5840 5860 5880
 vtxtable band 5 RACEBAND R FACTORY 5658 5695 5732 5769 5806 5843 5880 5917
 vtxtable band 6 IMD6     I CUSTOM  5732 5765 5828 5840 5866 5740    0    0
-vtxtable powerlevels 3
-vtxtable powervalues 0 1 2
-vtxtable powerlabels 25 100 200
-
-# master
-set gyro_lowpass_hz = 100
-set gyro_lowpass2_hz = 0
-set dyn_notch_width_percent = 0
-set dyn_notch_q = 250
-set dyn_notch_min_hz = 100
+vtxtable powerlevels 1
+vtxtable powerlabels 25
+set gyro_lowpass2_hz = 375
+set dyn_notch_min_hz = 125
 set dyn_notch_max_hz = 350
 set dyn_lpf_gyro_min_hz = 300
 set dyn_lpf_gyro_max_hz = 750
-set acc_calibration = -288,-47,-274,1
+set acc_calibration = -63,-14,234,1
 set min_check = 1000
 set max_check = 2000
 set fpv_mix_degrees = 25
 set rx_spi_protocol = REDPINE
-set dshot_idle_value = 800
-set dshot_burst = OFF
-set dshot_bidir = ON
-set motor_pwm_protocol = DSHOT300
+set dshot_idle_value = 1000
+set motor_pwm_protocol = DSHOT150
 set motor_poles = 12
-set vbat_max_cell_voltage = 435
-set vbat_min_cell_voltage = 310
-set vbat_warning_cell_voltage = 320
-set force_battery_cell_count = 1
-set vbat_scale = 112
-set ibata_scale = 1175
+set motor_output_reordering = 2,3,0,1
+set align_board_roll = 180
+set vbat_max_cell_voltage = 425
+set vbat_min_cell_voltage = 300
+set vbat_warning_cell_voltage = 310
 set beeper_dshot_beacon_tone = 5
 set yaw_motors_reversed = ON
 set small_angle = 180
@@ -93,40 +73,66 @@ set vcd_video_system = NTSC
 set frsky_spi_tx_id = 233,86,0
 set frsky_spi_offset = -33
 set frsky_spi_bind_hop_data = 8,89,130,204,175,61,53,26,165,37,156,97,55,64,115,12,228,35,191,99,216,28,253,185,195,134,202,247,109,81,2,183,72,243,44,154,50,188,233,58,10,94,104,78,67,210,83,226,148,0
-set gyro_1_align_yaw = 900
-set gyro_rpm_notch_harmonics = 1
-set gyro_rpm_notch_q = 700
-set name = MOBULA6
+set name = 75MM
 
 profile 0
-
-# profile 0
 set dyn_lpf_dterm_min_hz = 105
 set dyn_lpf_dterm_max_hz = 255
 set dyn_lpf_dterm_curve_expo = 7
-set dterm_lowpass_hz = 100
-set dterm_lowpass2_hz = 0
+set dterm_lowpass2_hz = 225
 set vbat_sag_compensation = 100
-set iterm_relax = RPY
-set p_pitch = 86
-set i_pitch = 99
-set d_pitch = 85
-set p_roll = 78
-set i_roll = 94
-set d_roll = 78
-set p_yaw = 85
-set i_yaw = 99
-set dyn_idle_min_rpm = 40
+set iterm_relax_cutoff = 20
+set yaw_lowpass_hz = 100
+set throttle_boost_cutoff = 25
+set p_pitch = 69
+set d_pitch = 68
+set p_roll = 63
+set d_roll = 62
+set p_yaw = 68
+set angle_level_strength = 90
+set level_limit = 65
 
 profile 1
 
 profile 2
-# restore original profile selection
 profile 0
 
 rateprofile 0
+set rates_type = ACTUAL
+set roll_rc_rate = 20
+set pitch_rc_rate = 20
+set yaw_rc_rate = 20
+set roll_expo = 60
+set pitch_expo = 60
+set yaw_expo = 60
+set roll_srate = 76
+set pitch_srate = 76
+set yaw_srate = 76
+set tpa_rate = 50
+set tpa_breakpoint = 1750
 
-# rateprofile 0
+rateprofile 1
+set rates_type = ACTUAL
+set roll_rc_rate = 20
+set pitch_rc_rate = 20
+set yaw_rc_rate = 20
+set roll_expo = 60
+set pitch_expo = 60
+set yaw_expo = 60
+set roll_srate = 76
+set pitch_srate = 76
+set yaw_srate = 76
+set tpa_rate = 50
+set tpa_breakpoint = 1750
+set rate_center_sensitivity = 130
+set rate_center_correction = 35
+set rate_center_weight = 30
+set rate_end_sensitivity = 115
+set rate_end_correction = 20
+set rate_end_weight = 10
+
+
+rateprofile 2
 set rates_type = ACTUAL
 set roll_rc_rate = 20
 set pitch_rc_rate = 20
@@ -140,23 +146,18 @@ set yaw_srate = 76
 set tpa_rate = 50
 set tpa_breakpoint = 1750
 set rate_center_sensitivity = 80
-set rate_end_sensitivity = 130
+set rate_center_correction = 10
 set rate_center_weight = 35
-set rate_end_weight = 35
+set rate_end_sensitivity = 130
+set rate_end_correction = 10
+set rate_end_weight = 35          #or less
 
-rateprofile 1
-
-rateprofile 2
 
 rateprofile 3
 
 rateprofile 4
 
 rateprofile 5
-
-# restore original rateprofile selection
 rateprofile 0
-
-# save configuration
 save
-#
+# 

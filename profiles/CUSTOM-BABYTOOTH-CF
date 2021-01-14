@@ -1,5 +1,5 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Jan 14 2021 / 11:51:50 (1fa2858ad) MSP API: 1.44
-# config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
+# Betaflight / STM32F411 (S411) 4.3.0 Nov 14 2020 / 18:20:23 (e3384bf01) MSP API: 1.44
+# config: manufacturer_id: AIRB, board_name: NOX, version: ce988aa0, date: 2019-10-19T07:28:43Z
 
 # start the command batch
 batch start
@@ -7,20 +7,23 @@ batch start
 # reset configuration to default settings
 defaults nosave
 
-board_name CRAZYBEEF4FR
-manufacturer_id HAMO
-mcu_id 002800333439510337313838
+board_name NOX
+manufacturer_id AIRB
+mcu_id 003a00493439510b38313437
 signature
 
-# name: MOBULA6
+# name: BABYTOOTH
+
+# resources
+resource MOTOR 1 B08
+resource MOTOR 2 B01
+resource MOTOR 3 A01
+resource MOTOR 4 A07
 
 # feature
-feature -RX_PARALLEL_PWM
-feature -AIRMODE
-feature -ANTI_GRAVITY
-
-# serial
-serial 1 2048 115200 57600 0 115200
+feature -SOFTSERIAL
+feature -ESC_SENSOR
+feature TELEMETRY
 
 # beacon
 beacon RX_LOST
@@ -30,9 +33,12 @@ beacon RX_SET
 aux 0 0 0 1700 2100 0 0
 aux 1 1 1 900 1300 0 0
 aux 2 13 3 1700 2100 0 0
-aux 3 28 2 1700 2100 0 0
+aux 3 28 1 1700 2100 0 0
 aux 4 30 1 900 1300 0 0
 aux 5 35 3 1700 2100 0 0
+
+# adjrange
+adjrange 0 0 2 900 2100 12 2 0 0
 
 # vtxtable
 vtxtable bands 6
@@ -48,35 +54,36 @@ vtxtable powervalues 0 1 2
 vtxtable powerlabels 25 100 200
 
 # master
-set gyro_lowpass_hz = 100
+set gyro_lowpass_hz = 150
 set gyro_lowpass2_hz = 0
 set dyn_notch_width_percent = 0
 set dyn_notch_q = 250
 set dyn_notch_min_hz = 100
 set dyn_notch_max_hz = 350
-set dyn_lpf_gyro_min_hz = 300
-set dyn_lpf_gyro_max_hz = 750
-set acc_calibration = -288,-47,-274,1
+set acc_calibration = -319,-10,314,1
 set min_check = 1000
 set max_check = 2000
 set fpv_mix_degrees = 25
-set rx_spi_protocol = REDPINE
+set serialrx_provider = CRSF
 set dshot_idle_value = 800
 set dshot_burst = OFF
 set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
 set motor_poles = 12
+set align_board_roll = 180
 set vbat_max_cell_voltage = 435
 set vbat_min_cell_voltage = 310
 set vbat_warning_cell_voltage = 320
+set current_meter = ADC
+set battery_meter = ADC
 set force_battery_cell_count = 1
 set vbat_scale = 112
 set ibata_scale = 1175
 set beeper_dshot_beacon_tone = 5
-set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
-set thrust_linear = 100
+set thrust_linear = 50
+set osd_warn_link_quality = ON
 set osd_rssi_pos = 2458
 set osd_tim_2_pos = 2450
 set osd_flymode_pos = 2439
@@ -90,61 +97,76 @@ set vtx_channel = 1
 set vtx_power = 1
 set vtx_freq = 5658
 set vcd_video_system = NTSC
-set frsky_spi_tx_id = 233,86,0
-set frsky_spi_offset = -33
-set frsky_spi_bind_hop_data = 8,89,130,204,175,61,53,26,165,37,156,97,55,64,115,12,228,35,191,99,216,28,253,185,195,134,202,247,109,81,2,183,72,243,44,154,50,188,233,58,10,94,104,78,67,210,83,226,148,0
-set gyro_1_align_yaw = 900
-set gyro_rpm_notch_harmonics = 1
 set gyro_rpm_notch_q = 700
-set name = MOBULA6
+set name = BABYTOOTH
 
 profile 0
 
 # profile 0
-set dyn_lpf_dterm_min_hz = 105
-set dyn_lpf_dterm_max_hz = 255
 set dyn_lpf_dterm_curve_expo = 7
 set dterm_lowpass_hz = 100
 set dterm_lowpass2_hz = 0
 set vbat_sag_compensation = 100
+set anti_gravity_gain = 5000
 set iterm_relax = RPY
-set p_pitch = 86
-set i_pitch = 99
-set d_pitch = 85
-set p_roll = 78
-set i_roll = 94
-set d_roll = 78
-set p_yaw = 85
-set i_yaw = 99
-set dyn_idle_min_rpm = 40
+set iterm_relax_cutoff = 20
+set yaw_lowpass_hz = 100
+set throttle_boost = 0
+set throttle_boost_cutoff = 25
+set p_pitch = 120
+set i_pitch = 50
+set d_pitch = 80
+set p_roll = 120
+set i_roll = 50
+set d_roll = 80
+set p_yaw = 40
+set i_yaw = 60
+set idle_min_rpm = 40
 
 profile 1
 
 profile 2
+
 # restore original profile selection
 profile 0
 
 rateprofile 0
 
 # rateprofile 0
+set thr_mid = 40
 set rates_type = ACTUAL
 set roll_rc_rate = 20
 set pitch_rc_rate = 20
 set yaw_rc_rate = 20
-set roll_expo = 60
-set pitch_expo = 60
-set yaw_expo = 60
+set roll_expo = 30
+set pitch_expo = 30
+set yaw_expo = 30
 set roll_srate = 76
 set pitch_srate = 76
 set yaw_srate = 76
-set tpa_rate = 50
-set tpa_breakpoint = 1750
+set tpa_rate = 35
+set tpa_breakpoint = 1400
+
+rateprofile 1
+
+# rateprofile 1
+set thr_mid = 40
+set rates_type = ACTUAL
+set roll_rc_rate = 20
+set pitch_rc_rate = 20
+set yaw_rc_rate = 20
+set roll_expo = 30
+set pitch_expo = 30
+set yaw_expo = 30
+set roll_srate = 76
+set pitch_srate = 76
+set yaw_srate = 76
+set tpa_rate = 35
+set tpa_breakpoint = 1400
 set rate_center_sensitivity = 80
 set rate_end_sensitivity = 130
 set rate_center_weight = 35
 set rate_end_weight = 35
-
-rateprofile 1
 
 rateprofile 2
 

@@ -1,9 +1,9 @@
 # Betaflight / CRAZYBEEF4FR (C4FR) 3.5.7 Mar 15 2019 / 21:42:20 (e9130527c) MSP API: 1.40
 
 board_name CRAZYBEEF4FR
-manufacturer_id 
+manufacturer_id
 mcu_id 005c00233439510b36383737
-signature 
+signature
 
 # reset configuration to default settings
 defaults nosave
@@ -172,4 +172,4 @@ rateprofile 1
 
 # save configuration
 save
-# 
+#

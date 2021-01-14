@@ -1,5 +1,5 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Oct 27 2020 / 20:55:24 (b8417e1ae) MSP API: 1.44
-# config: manufacturer_id: AIRB, board_name: NOX, version: ce988aa0, date: 2019-10-19T07:28:43Z
+# Betaflight / STM32F411 (S411) 4.3.0 Nov 14 2020 / 19:49:09 (norevision) MSP API: 1.44
+# config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
 
 # start the command batch
 batch start
@@ -7,23 +7,24 @@ batch start
 # reset configuration to default settings
 defaults nosave
 
-board_name NOX
-manufacturer_id AIRB
-mcu_id 003a00493439510b38313437
-signature 
+board_name CRAZYBEEF4FR
+manufacturer_id HAMO
+mcu_id 005300343339510839363632
+signature
 
 # name: BABYTOOTH
 
 # resources
-resource MOTOR 1 B08
-resource MOTOR 2 B01
-resource MOTOR 3 A01
-resource MOTOR 4 A07
+resource MOTOR 1 B07
+resource MOTOR 2 B08
+resource MOTOR 3 B10
+resource MOTOR 4 B06
 
 # feature
-feature -SOFTSERIAL
-feature -ESC_SENSOR
-feature TELEMETRY
+feature -RX_PARALLEL_PWM
+
+# serial
+serial 1 2048 115200 57600 0 115200
 
 # beacon
 beacon RX_LOST
@@ -64,8 +65,9 @@ set acc_calibration = -319,-10,314,1
 set min_check = 1000
 set max_check = 2000
 set fpv_mix_degrees = 25
-set serialrx_provider = CRSF
-set dshot_idle_value = 800
+set rx_spi_protocol = FRSKY_D
+set dshot_idle_value = 100
+set dshot_burst = OFF
 set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
 set motor_poles = 12
@@ -73,12 +75,11 @@ set align_board_roll = 180
 set vbat_max_cell_voltage = 435
 set vbat_min_cell_voltage = 310
 set vbat_warning_cell_voltage = 320
-set current_meter = ADC
-set battery_meter = ADC
 set force_battery_cell_count = 1
 set vbat_scale = 112
 set ibata_scale = 1175
 set beeper_dshot_beacon_tone = 5
+set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
 set thrust_linear = 50
@@ -96,6 +97,10 @@ set vtx_channel = 1
 set vtx_power = 1
 set vtx_freq = 5658
 set vcd_video_system = NTSC
+set frsky_spi_tx_id = 75,99,0
+set frsky_spi_offset = -1
+set frsky_spi_bind_hop_data = 0,42,25,14,63,18,70,15,68,54,23,33,26,11,36,60,49,19,24,71,21,28,2,39,30,48,17,34,56,45,61,8,44,16,74,57,38,65,31,37,69,62,5,43,73,53,3,0,0,0
+set gyro_1_align_yaw = 900
 set gyro_rpm_notch_q = 700
 set name = BABYTOOTH
 
@@ -145,6 +150,10 @@ set pitch_srate = 76
 set yaw_srate = 76
 set tpa_rate = 35
 set tpa_breakpoint = 1400
+set rate_center_sensitivity = 80
+set rate_end_sensitivity = 130
+set rate_center_weight = 35
+set rate_end_weight = 35
 
 rateprofile 1
 
@@ -161,4 +170,3 @@ rateprofile 0
 
 # save configuration
 save
-# 

@@ -1,4 +1,4 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Oct 17 2020 / 15:13:18 (69e6e1b65) MSP API: 1.44
+# Betaflight / STM32F411 (S411) 4.3.0 Nov 14 2020 / 18:20:23 (e3384bf01) MSP API: 1.44
 # config: manufacturer_id: MTKS, board_name: MATEKF411RX, version: ee671311, date: 2019-10-16T11:49:37Z
 
 # start the command batch
@@ -10,7 +10,7 @@ defaults nosave
 board_name MATEKF411RX
 manufacturer_id MTKS
 mcu_id 006600563339511838383538
-signature 
+signature
 
 # name: HX100SE
 
@@ -55,16 +55,10 @@ set dyn_notch_q = 250
 set dyn_notch_min_hz = 100
 set dyn_notch_max_hz = 350
 set acc_calibration = -149,79,-432,1
-set mag_hardware = NONE
-set baro_hardware = NONE
 set min_check = 1000
 set max_check = 2000
-set rc_interp = OFF
-set rc_smoothing_derivative_type = OFF
-set rc_smoothing_auto_smoothness = 7
 set fpv_mix_degrees = 25
 set rx_spi_protocol = FRSKY_D
-set blackbox_device = NONE
 set dshot_burst = OFF
 set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
@@ -78,14 +72,13 @@ set beeper_dshot_beacon_tone = 5
 set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
-set runaway_takeoff_prevention = OFF
 set thrust_linear = 50
-set osd_rssi_pos = 6554
+set osd_rssi_pos = 2458
 set osd_tim_2_pos = 2450
 set osd_flymode_pos = 2439
 set osd_pidrate_profile_pos = 2445
-set osd_warnings_pos = 14537
-set osd_avg_cell_voltage_pos = 6528
+set osd_warnings_pos = 2249
+set osd_avg_cell_voltage_pos = 2432
 set osd_stat_battery = ON
 set scheduler_optimize_rate = ON
 set vtx_band = 5
@@ -113,10 +106,7 @@ set d_pitch = 65
 set p_roll = 84
 set d_roll = 60
 set p_yaw = 90
-set d_min_roll = 0
-set d_min_pitch = 0
-set ff_interpolate_sp = OFF
-set idle_min_rpm = 60
+set idle_min_rpm = 40
 
 profile 1
 
@@ -133,12 +123,12 @@ set rates_type = ACTUAL
 set roll_rc_rate = 20
 set pitch_rc_rate = 20
 set yaw_rc_rate = 20
-set roll_expo = 60
-set pitch_expo = 60
-set yaw_expo = 60
-set roll_srate = 74
-set pitch_srate = 74
-set yaw_srate = 74
+set roll_expo = 30
+set pitch_expo = 30
+set yaw_expo = 30
+set roll_srate = 76
+set pitch_srate = 76
+set yaw_srate = 76
 set tpa_rate = 35
 set tpa_breakpoint = 1400
 set rate_center_sensitivity = 80
@@ -148,46 +138,7 @@ set rate_end_weight = 35
 
 rateprofile 1
 
-# rateprofile 1
-set thr_mid = 40
-set rates_type = ACTUAL
-set roll_rc_rate = 20
-set pitch_rc_rate = 20
-set yaw_rc_rate = 20
-set roll_expo = 60
-set pitch_expo = 60
-set yaw_expo = 60
-set roll_srate = 76
-set pitch_srate = 76
-set yaw_srate = 76
-set tpa_rate = 35
-set tpa_breakpoint = 1400
-set rate_center_sensitivity = 80
-set rate_end_sensitivity = 90
-set rate_center_correction = 20
-set rate_center_weight = 85
-set rate_end_weight = 50
-
 rateprofile 2
-
-# rateprofile 2
-set thr_mid = 40
-set rates_type = ACTUAL
-set roll_rc_rate = 20
-set pitch_rc_rate = 20
-set yaw_rc_rate = 20
-set roll_expo = 60
-set pitch_expo = 60
-set yaw_expo = 60
-set roll_srate = 76
-set pitch_srate = 76
-set yaw_srate = 76
-set tpa_rate = 35
-set tpa_breakpoint = 1400
-set rate_center_sensitivity = 55
-set rate_center_correction = 25
-set rate_center_weight = 90
-set rate_end_weight = 50
 
 rateprofile 3
 
@@ -200,4 +151,3 @@ rateprofile 0
 
 # save configuration
 save
-# 
