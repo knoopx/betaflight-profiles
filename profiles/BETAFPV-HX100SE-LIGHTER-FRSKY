@@ -1,4 +1,4 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Nov 14 2020 / 19:49:09 (norevision) MSP API: 1.44
+# Betaflight / STM32F411 (S411) 4.3.0 Feb 11 2021 / 15:51:58 (fe70a1c68) MSP API: 1.44
 # config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
 
 # start the command batch
@@ -111,7 +111,7 @@ set i_roll = 45
 set d_roll = 45
 set p_yaw = 130
 set i_yaw = 45
-set idle_min_rpm = 40
+set dyn_idle_min_rpm = 40
 
 profile 1
 

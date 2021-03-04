@@ -1,4 +1,4 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Jan 14 2021 / 11:51:50 (1fa2858ad) MSP API: 1.44
+# Betaflight / STM32F411 (S411) 4.3.0 Feb 11 2021 / 14:55:22 (bccdf84d6) MSP API: 1.44
 # config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
 
 # start the command batch
@@ -76,7 +76,7 @@ set beeper_dshot_beacon_tone = 5
 set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
-set thrust_linear = 100
+set thrust_linear = 150
 set osd_rssi_pos = 2458
 set osd_tim_2_pos = 2450
 set osd_flymode_pos = 2439
@@ -90,9 +90,9 @@ set vtx_channel = 1
 set vtx_power = 1
 set vtx_freq = 5658
 set vcd_video_system = NTSC
-set frsky_spi_tx_id = 233,86,0
-set frsky_spi_offset = -33
-set frsky_spi_bind_hop_data = 8,89,130,204,175,61,53,26,165,37,156,97,55,64,115,12,228,35,191,99,216,28,253,185,195,134,202,247,109,81,2,183,72,243,44,154,50,188,233,58,10,94,104,78,67,210,83,226,148,0
+set frsky_spi_tx_id = 77,102,0
+set frsky_spi_offset = -3
+set frsky_spi_bind_hop_data = 122,89,41,139,209,252,167,94,124,238,15,47,6,87,54,58,44,134,158,236,186,172,151,68,34,248,2,230,174,78,31,154,13,81,38,195,192,219,117,10,211,137,170,241,19,73,163,101,233,0
 set gyro_1_align_yaw = 900
 set gyro_rpm_notch_harmonics = 1
 set gyro_rpm_notch_q = 700
@@ -108,15 +108,21 @@ set dterm_lowpass_hz = 100
 set dterm_lowpass2_hz = 0
 set vbat_sag_compensation = 100
 set iterm_relax = RPY
-set p_pitch = 86
-set i_pitch = 99
-set d_pitch = 85
-set p_roll = 78
-set i_roll = 94
-set d_roll = 78
-set p_yaw = 85
-set i_yaw = 99
+set p_pitch = 84
+set i_pitch = 98
+set d_pitch = 84
+set p_roll = 74
+set i_roll = 88
+set d_roll = 74
+set p_yaw = 108
+set i_yaw = 104
 set dyn_idle_min_rpm = 40
+set simplified_pids_mode = RPY
+set simplified_master_multiplier = 122
+set simplified_roll_pitch_ratio = 90
+set simplified_i_gain = 96
+set simplified_pd_ratio = 84
+set simplified_pd_gain = 200
 
 profile 1
 
@@ -128,16 +134,6 @@ profile 0
 rateprofile 0
 
 # rateprofile 0
-set tpa_rate = 50
-set tpa_breakpoint = 1750
-set rate_center_sensitivity = 80
-set rate_end_sensitivity = 130
-set rate_center_weight = 35
-set rate_end_weight = 35
-
-rateprofile 1
-
-# rateprofile 1
 set rates_type = ACTUAL
 set roll_rc_rate = 20
 set pitch_rc_rate = 20
@@ -148,8 +144,14 @@ set yaw_expo = 60
 set roll_srate = 76
 set pitch_srate = 76
 set yaw_srate = 76
-set tpa_rate = 50
-set tpa_breakpoint = 1750
+set rate_center_sensitivity = 80
+set rate_end_sensitivity = 130
+set rate_center_weight = 35
+set rate_end_weight = 35
+
+rateprofile 1
+
+# rateprofile 1
 set rate_center_sensitivity = 80
 set rate_end_sensitivity = 130
 set rate_center_weight = 35
