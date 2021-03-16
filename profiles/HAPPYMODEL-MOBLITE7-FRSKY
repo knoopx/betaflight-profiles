@@ -1,5 +1,4 @@
-# version
-# Betaflight / STM32F411 (S411) 4.3.0 Mar  4 2021 / 14:45:44 (1ccdc77e1) MSP API: 1.44
+# Betaflight / STM32F411 (S411) 4.3.0 Mar  9 2021 / 13:18:38 (1ccdc77e1) MSP API: 1.44
 # config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
 
 # start the command batch
@@ -13,13 +12,13 @@ manufacturer_id HAMO
 mcu_id 001d004c4b56500220313553
 signature
 
-# name: MOBLITE7
+# name: MLITE7
 
 # resources
-resource MOTOR 1 B08
-resource MOTOR 2 B07
-resource MOTOR 3 B06
-resource MOTOR 4 B10
+resource MOTOR 1 B06
+resource MOTOR 2 B10
+resource MOTOR 3 B08
+resource MOTOR 4 B07
 
 # feature
 feature -RX_PARALLEL_PWM
@@ -37,9 +36,12 @@ beacon RX_SET
 aux 0 0 0 1700 2100 0 0
 aux 1 1 1 900 1300 0 0
 aux 2 13 3 1700 2100 0 0
-aux 3 28 2 1700 2100 0 0
+aux 3 28 1 1700 2100 0 0
 aux 4 30 1 900 1300 0 0
 aux 5 35 3 1700 2100 0 0
+
+# adjrange
+adjrange 0 0 2 900 2100 12 2 0 0
 
 # vtxtable
 vtxtable bands 6
@@ -56,24 +58,25 @@ vtxtable powerlabels 25 100 200
 
 # master
 set gyro_lowpass_hz = 100
-set gyro_lowpass2_hz = 0
+set gyro_lowpass2_hz = 375
 set dyn_notch_width_percent = 0
 set dyn_notch_q = 250
 set dyn_notch_min_hz = 100
 set dyn_notch_max_hz = 350
 set dyn_lpf_gyro_min_hz = 300
 set dyn_lpf_gyro_max_hz = 750
-set acc_calibration = -288,-47,-274,1
+set acc_calibration = -3,-17,6,1
 set min_check = 1000
 set max_check = 2000
 set fpv_mix_degrees = 25
-set rx_spi_protocol = REDPINE
+set rx_spi_protocol = FRSKY_D
 set dshot_idle_value = 1000
 set dshot_burst = OFF
 set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
 set motor_poles = 12
-set align_board_yaw = 180
+set motor_output_reordering = 2,3,0,1
+set align_board_yaw = -90
 set vbat_max_cell_voltage = 435
 set vbat_min_cell_voltage = 310
 set vbat_warning_cell_voltage = 320
@@ -85,6 +88,7 @@ set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
 set thrust_linear = 150
+set simplified_gyro_filter = ON
 set osd_rssi_pos = 2458
 set osd_tim_2_pos = 2450
 set osd_flymode_pos = 2439
@@ -92,19 +96,21 @@ set osd_pidrate_profile_pos = 2445
 set osd_warnings_pos = 2249
 set osd_avg_cell_voltage_pos = 2432
 set osd_stat_battery = ON
+set cpu_overclock = OFF
 set scheduler_optimize_rate = ON
 set vtx_band = 5
 set vtx_channel = 1
-set vtx_power = 1
+set vtx_power = 2
 set vtx_freq = 5658
 set vcd_video_system = NTSC
-set frsky_spi_tx_id = 77,102,0
-set frsky_spi_offset = -3
-set frsky_spi_bind_hop_data = 122,89,41,139,209,252,167,94,124,238,15,47,6,87,54,58,44,134,158,236,186,172,151,68,34,248,2,230,174,78,31,154,13,81,38,195,192,219,117,10,211,137,170,241,19,73,163,101,233,0
+set frsky_spi_tx_id = 102,77,0
+set frsky_spi_offset = -26
+set frsky_spi_bind_hop_data = 0,30,60,91,120,150,180,210,5,35,65,95,125,155,185,215,10,40,70,100,130,160,190,221,15,45,75,105,135,165,195,225,20,50,80,110,140,170,200,230,25,55,85,115,145,175,205,0,0,0
+set gyro_1_sensor_align = DEFAULT
 set gyro_1_align_yaw = 900
 set gyro_rpm_notch_harmonics = 1
 set gyro_rpm_notch_q = 700
-set name = MOBLITE7
+set name = MLITE7
 
 profile 0
 
@@ -116,39 +122,35 @@ set dterm_lowpass_hz = 100
 set dterm_lowpass2_hz = 0
 set vbat_sag_compensation = 100
 set iterm_relax = RPY
-set p_pitch = 84
-set i_pitch = 98
-set d_pitch = 84
-set p_roll = 74
-set i_roll = 88
-set d_roll = 74
-set p_yaw = 108
-set i_yaw = 104
-set dyn_idle_min_rpm = 40
+set p_pitch = 82
+set i_pitch = 89
+set d_pitch = 45
+set p_roll = 75
+set i_roll = 84
+set d_roll = 41
+set p_yaw = 81
+set i_yaw = 89
+set dyn_idle_min_rpm = 35
 set simplified_pids_mode = RPY
-set simplified_master_multiplier = 122
-set simplified_roll_pitch_ratio = 90
-set simplified_i_gain = 96
-set simplified_pd_ratio = 84
-set simplified_pd_gain = 200
+set simplified_master_multiplier = 80
+set simplified_i_gain = 125
+set simplified_pd_ratio = 150
+set simplified_pd_gain = 150
 
 profile 1
 
+# profile 1
 set dterm_lowpass2_hz = 0
-set dterm_notch_cutoff = 0
-set feedforward_transition = 21
 set iterm_relax = RPY
 set p_pitch = 80
 set i_pitch = 100
 set d_pitch = 85
-set f_pitch = 140
 set p_roll = 85
 set i_roll = 100
 set d_roll = 85
-set f_roll = 140
 set p_yaw = 120
 set i_yaw = 100
-set f_yaw = 140
+
 profile 2
 
 # restore original profile selection
@@ -167,6 +169,8 @@ set yaw_expo = 60
 set roll_srate = 76
 set pitch_srate = 76
 set yaw_srate = 76
+set tpa_rate = 30
+set tpa_breakpoint = 1200
 set rate_center_sensitivity = 80
 set rate_end_sensitivity = 130
 set rate_center_weight = 35
@@ -175,6 +179,8 @@ set rate_end_weight = 35
 rateprofile 1
 
 # rateprofile 1
+set tpa_rate = 30
+set tpa_breakpoint = 1200
 set rate_center_sensitivity = 80
 set rate_end_sensitivity = 130
 set rate_center_weight = 35

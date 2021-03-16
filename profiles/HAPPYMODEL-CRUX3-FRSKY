@@ -1,4 +1,4 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Dec 21 2020 / 15:14:56 (ad12f3f09) MSP API: 1.44
+# Betaflight / STM32F411 (S411) 4.3.0 Dec 22 2020 / 16:13:10 (e3384bf01) MSP API: 1.44
 # config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
 
 # start the command batch
@@ -15,8 +15,8 @@ signature
 # name: CRUX3
 
 # feature
+feature -RX_PARALLEL_PWM
 feature -ANTI_GRAVITY
-feature AIRMODE
 
 # serial
 serial 1 2048 115200 57600 0 115200
@@ -153,7 +153,7 @@ rateprofile 4
 rateprofile 5
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 2
 
 # save configuration
 save

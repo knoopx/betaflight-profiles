@@ -1,4 +1,4 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Nov 14 2020 / 18:20:23 (e3384bf01) MSP API: 1.44
+# Betaflight / STM32F411 (S411) 4.3.0 Mar  9 2021 / 13:18:38 (1ccdc77e1) MSP API: 1.44
 # config: manufacturer_id: MTKS, board_name: MATEKF411RX, version: ee671311, date: 2019-10-16T11:49:37Z
 
 # start the command batch
@@ -49,7 +49,6 @@ vtxtable powerlabels 25 200
 
 # master
 set gyro_lowpass_hz = 150
-set gyro_lowpass2_hz = 0
 set dyn_notch_width_percent = 0
 set dyn_notch_q = 250
 set dyn_notch_min_hz = 100
@@ -73,6 +72,7 @@ set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
 set thrust_linear = 50
+set simplified_gyro_filter = ON
 set osd_rssi_pos = 2458
 set osd_tim_2_pos = 2450
 set osd_flymode_pos = 2439
@@ -86,9 +86,9 @@ set vtx_channel = 1
 set vtx_power = 1
 set vtx_freq = 5658
 set vcd_video_system = NTSC
-set frsky_spi_tx_id = 75,99,0
-set frsky_spi_offset = -1
-set frsky_spi_bind_hop_data = 0,42,25,14,63,18,70,15,68,54,23,33,26,11,36,60,49,19,24,71,21,28,2,39,30,48,17,34,56,45,61,8,44,16,74,57,38,65,31,37,69,62,5,43,73,53,3,0,0,0
+set frsky_spi_tx_id = 102,77,0
+set frsky_spi_offset = -26
+set frsky_spi_bind_hop_data = 0,30,60,91,120,150,180,210,5,35,65,95,125,155,185,215,10,40,70,100,130,160,190,221,15,45,75,105,135,165,195,225,20,50,80,110,140,170,200,230,25,55,85,115,145,175,205,0,0,0
 set gyro_1_align_yaw = 1800
 set gyro_rpm_notch_q = 700
 set name = HX100SE
@@ -101,14 +101,30 @@ set dterm_lowpass2_hz = 0
 set vbat_sag_compensation = 100
 set throttle_boost = 0
 set throttle_boost_cutoff = 25
+set p_pitch = 72
+set d_pitch = 50
+set p_roll = 66
+set d_roll = 46
+set p_yaw = 71
+set dyn_idle_min_rpm = 40
+set simplified_pids_mode = RPY
+set simplified_pd_ratio = 120
+set simplified_pd_gain = 132
+
+profile 1
+
+# profile 1
+set dyn_lpf_dterm_curve_expo = 7
+set dterm_lowpass2_hz = 0
+set vbat_sag_compensation = 100
+set throttle_boost = 0
+set throttle_boost_cutoff = 25
 set p_pitch = 92
 set d_pitch = 65
 set p_roll = 84
 set d_roll = 60
 set p_yaw = 90
-set idle_min_rpm = 40
-
-profile 1
+set dyn_idle_min_rpm = 40
 
 profile 2
 
@@ -123,12 +139,12 @@ set rates_type = ACTUAL
 set roll_rc_rate = 20
 set pitch_rc_rate = 20
 set yaw_rc_rate = 20
-set roll_expo = 30
-set pitch_expo = 30
-set yaw_expo = 30
-set roll_srate = 76
-set pitch_srate = 76
-set yaw_srate = 76
+set roll_expo = 55
+set pitch_expo = 55
+set yaw_expo = 55
+set roll_srate = 74
+set pitch_srate = 74
+set yaw_srate = 74
 set tpa_rate = 35
 set tpa_breakpoint = 1400
 set rate_center_sensitivity = 80
@@ -151,3 +167,4 @@ rateprofile 0
 
 # save configuration
 save
+#

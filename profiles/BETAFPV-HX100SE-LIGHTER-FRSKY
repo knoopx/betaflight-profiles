@@ -1,4 +1,4 @@
-# Betaflight / STM32F411 (S411) 4.3.0 Feb 11 2021 / 15:51:58 (fe70a1c68) MSP API: 1.44
+# Betaflight / STM32F411 (S411) 4.3.0 Mar  9 2021 / 13:18:38 (1ccdc77e1) MSP API: 1.44
 # config: manufacturer_id: HAMO, board_name: CRAZYBEEF4FR, version: 56f796fb, date: 2019-10-26T09:47:21Z
 
 # start the command batch
@@ -18,10 +18,8 @@ signature
 feature -RX_PARALLEL_PWM
 feature -AIRMODE
 feature -ANTI_GRAVITY
-
 # serial
 serial 1 2048 115200 57600 0 115200
-
 # beacon
 beacon RX_LOST
 beacon RX_SET
@@ -88,9 +86,9 @@ set vtx_channel = 1
 set vtx_power = 1
 set vtx_freq = 5658
 set vcd_video_system = NTSC
-set frsky_spi_tx_id = 75,99,0
-set frsky_spi_offset = -1
-set frsky_spi_bind_hop_data = 0,42,25,14,63,18,70,15,68,54,23,33,26,11,36,60,49,19,24,71,21,28,2,39,30,48,17,34,56,45,61,8,44,16,74,57,38,65,31,37,69,62,5,43,73,53,3,0,0,0
+set frsky_spi_tx_id = 102,77
+set frsky_spi_offset = -26
+set frsky_spi_bind_hop_data = 0,30,60,91,120,150,180,210,5,35,65,95,125,155,185,215,10,40,70,100,130,160,190,221,15,45,75,105,135,165,195,225,20,50,80,110,140,170,200,230,25,55,85,115,145,175,205,0,0,0
 set gyro_1_align_yaw = 900
 set gyro_rpm_notch_q = 700
 set name = HX100SE
@@ -149,7 +147,8 @@ rateprofile 4
 rateprofile 5
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 1
 
 # save configuration
 save
+#
